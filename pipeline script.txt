@@ -1,0 +1,39 @@
+node {
+  
+    stage('Git clone') { 
+          
+       git branch: 'main', credentialsId: 'git', url: 'https://github.com/Kon-umareddy/proj.git'
+    
+    stage('clean') { 
+      sh 'mvn clean'
+        
+    }
+     stage('validate') {
+      sh 'mvn validate' 
+        
+    }
+     stage('compile') { 
+      sh 'mvn compile'
+        
+    }
+     stage('test') {
+      sh 'mvn test' 
+        
+    }
+     stage('package') { 
+      sh 'mvn package'
+        
+    }
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
